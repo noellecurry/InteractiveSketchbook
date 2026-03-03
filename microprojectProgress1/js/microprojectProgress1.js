@@ -14,9 +14,26 @@ function setup() {
 function draw() {
   if (breathing) {
 
-    noStroke();
-    fill("#eed0db");
-    circle(width / 2, height / 2, 200);
+    background(255);
+
+    let fade = map(sin(frameCount * 0.02), -1, 1, 60, 180);
+
+    stroke("#451426");
+    
+    push ();
+    translate(width / 2, height / 2);
+
+    rotate(frameCount * 0.005);
+
+    fill(235, 157, 186, fade);
+
+    for (let i = 0; i < 10; i++) {
+      ellipse (0, 70, 80, 160);
+      rotate(TWO_PI / 10);
+    }
+
+    pop();
+    
 
     // after 20 seconds
     if (millis() - startTime > 10000) {
