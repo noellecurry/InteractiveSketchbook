@@ -1,28 +1,39 @@
 let button;
-let canvasCreated = false;
+let canvas;
+let startTime = 0;
+let breathing = false;
 
 function setup() {
-  
-  // Create a button and set its value to 0.
-  // Place the button beneath the canvas.
-  button = createButton('breathe deep');
-  button.mousePressed(showCanvas);
+  canvas = createCanvas(500, 500);
+  canvas.hide(); // start hidden
+
+  button = createButton("breathe deep");
+  button.mousePressed(startBreathing);
 }
 
 function draw() {
-  if (!canvasCreated) {
-  background(200);
-  circle(250, 250, 200);
-  }
+  if (breathing) {
 
+    noStroke();
+    fill("#eed0db");
+    circle(width / 2, height / 2, 200);
+
+    // after 20 seconds
+    if (millis() - startTime > 10000) {
+      breathing = false;
+      canvas.hide();
+      button.show();
+    }
+  }
 }
 
+function startBreathing() {
+  console.log("button clicked"); // check console
 
-  function showCanvas() {
-    if (!canvasCreated) {
-     createCanvas(500, 500);
-     canvasCreated = true;
-    }
-  
+  breathing = true;
+  startTime = millis();
+
+  canvas.show();
+  button.hide();
 }
 
