@@ -21,7 +21,7 @@ function draw() {
 
     stroke("#451426");
 
-// groups flower together and brings to orginal state
+// groups flower together and brings to orignal state
     push ();
     translate(width / 2, height / 2);
 
