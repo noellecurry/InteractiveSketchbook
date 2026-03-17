@@ -8,7 +8,7 @@ let osc2;
 
 
 function setup() {
-  canvas = createCanvas(800, 800);
+  canvas = createCanvas(1000, 1000);
   canvas.parent("sketch-holder");
   canvas.hide();
 
