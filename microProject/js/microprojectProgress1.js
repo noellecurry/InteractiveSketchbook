@@ -71,9 +71,9 @@ function draw() {
 
    fill(235, 157, 186, fade);
 
-let petalSize = map(breath, 0, 1, 120, 200);
+let petalSize = map(breath, 0, 1, 180, 300);
     for (let i = 0; i < 10; i++) {
-      ellipse(0, 70, 80, petalSize);
+      ellipse(0, 100, 120, petalSize);
       rotate(TWO_PI / 10);
     }
 
@@ -82,16 +82,18 @@ let petalSize = map(breath, 0, 1, 120, 200);
     
 
 //10 second timer
-    if (millis() - startTime > 10000) {
+    if (millis() - startTime > 30000) {
       breathing = false;
       osc.amp(0, 2); 
       osc2.amp(0, 2);
       canvas.hide();
       button.show();
+      document.querySelector('h4').style.display = 'block'; 
+}
 
     }
   }
-}
+
 
 
 function startBreathing() {
@@ -105,5 +107,6 @@ function startBreathing() {
 
   canvas.show();
   button.hide();
+  document.querySelector('h4').style.display = 'none';
 }
 
