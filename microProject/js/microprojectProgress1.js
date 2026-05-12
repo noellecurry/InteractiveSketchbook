@@ -88,7 +88,7 @@ let petalSize = map(breath, 0, 1, 180, 300);
       osc2.amp(0, 2);
       canvas.hide();
       button.show();
-      document.querySelector('h4').style.display = 'block'; 
+ 
 }
 
     }
